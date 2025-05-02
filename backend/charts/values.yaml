@@ -1,0 +1,12 @@
+replicaCount: 2
+
+image:
+  repository: 654654409772.dkr.ecr.us-east-1.amazonaws.com/backend
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+containerPort: 5000
