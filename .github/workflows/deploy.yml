@@ -23,7 +23,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Set IMAGE_TAG
-        run: echo "IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend:latest" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=${{ secrets.ECR_REGISTRY }}:latest" >> $GITHUB_ENV
         
       - name: Build Docker image
         run: docker build -t $IMAGE_TAG ./backend
