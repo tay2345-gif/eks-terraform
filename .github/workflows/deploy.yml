@@ -22,10 +22,16 @@ jobs:
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build and Push Docker Image to ECR
-      run: |
-        IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend:latest
-        docker push $IMAGE_TAG
+    - name: Set IMAGE_TAG
+  run: echo "IMAGE_TAG=${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/backend:latest" >> $GITHUB_ENV
+
+    - name:Build Docker image
+  run: |
+    docker build -t $IMAGE_TAG ./backend  # <-- path to Dockerfile
+
+- name: Push Docker image to ECR
+  run: |
+    docker push $IMAGE_TAG
 
     - name: Configure kubectl for EKS
       run: |
