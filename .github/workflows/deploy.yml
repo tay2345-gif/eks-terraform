@@ -24,7 +24,7 @@ jobs:
 
     - name: Build and Push Docker Image to ECR
       run: |
-        IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend:latest
+        IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend/Dockerfile:latest
         docker build -t $IMAGE_TAG .
         docker push $IMAGE_TAG
 
