@@ -37,7 +37,7 @@ jobs:
         sed -i "s|REPLACE_IMAGE|${{ secrets.ECR_REGISTRY }}/backend:latest|g" helm/values.yaml
 
     - name: Install Helm
-      uses: helm/setup-helm@v3
+      uses: azure/setup-helm@v3
 
     - name: Deploy with Helm
       run: |
