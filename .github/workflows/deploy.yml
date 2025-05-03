@@ -39,7 +39,7 @@ jobs:
 
       - name: Set Image Tag in Helm Chart
         run: |
-          sed -i "s|REPLACE_IMAGE|$IMAGE_TAG|g" helm/values.yaml
+          sed -i "s|REPLACE_IMAGE|$IMAGE_TAG|g" backend/charts/values.yaml
 
       - name: Install Helm
         uses: azure/setup-helm@v3
