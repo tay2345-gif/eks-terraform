@@ -24,8 +24,7 @@ jobs:
 
     - name: Build and Push Docker Image to ECR
       run: |
-        IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend/Dockerfile:latest
-        docker build -t $IMAGE_TAG .
+        IMAGE_TAG=${{ secrets.ECR_REGISTRY }}/backend:latest
         docker push $IMAGE_TAG
 
     - name: Configure kubectl for EKS
