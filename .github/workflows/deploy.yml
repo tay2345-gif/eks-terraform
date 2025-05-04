@@ -46,6 +46,6 @@ jobs:
 
       - name: Deploy with Helm
         run: |
-          helm upgrade --install backend-release helm/ \
+          helm upgrade --install backend-release backend/charts/ \
             --namespace default \
             --create-namespace
